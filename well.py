@@ -61,3 +61,4 @@ def detect(moxing_type, renshe):
     # 直接用 json 参数发送（自动序列化列表为 JSON 数组）
     response = requests.post(url=url, json=data)
     print(response.text)
+    return result_list

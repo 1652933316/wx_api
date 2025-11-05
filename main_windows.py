@@ -684,7 +684,8 @@ class Ui_wechat_ai(QWidget):
                 if self.checkbox_isAll.isChecked() and self.textEdit.toPlainText() == "":
                     print("开始检测）））））））））））））")
                     try:
-                        detect(moxing_type, renshe)
+                        result_list = detect(moxing_type, renshe)
+                        self.data_queue.put(f"<font color='blue'>✅ 🤖ai回复</font>：{result_list}\n")
                     except Exception:
                         pass
                     continue
