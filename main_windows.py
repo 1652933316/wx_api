@@ -665,6 +665,10 @@ class Ui_wechat_ai(QWidget):
         self.deepseek_message = {}
         self.flag_sum = 1
 
+        # 1、获取所有微信实例
+        # 2、遍历所有实例
+        # 3、每次启动一个线程去获取推荐的聊天记录
+
         def inner_jiankong():
             def on_esc_press(event):
                 """按下ESC键时执行的回调函数"""
